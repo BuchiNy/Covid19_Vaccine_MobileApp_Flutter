@@ -39,7 +39,6 @@ class _otherVaccineState extends State<otherVaccine> {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                      C:\Users\Mabuchi Nyirenda\Documents\untitled
                     subtitle: Text(
                         data['Location'],
                         style: TextStyle(
