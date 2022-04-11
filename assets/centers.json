@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "CenterName": "Area 18 Central Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 40
+    },
+    {
+      "CenterName": "Kamuzu Central Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 100
+    },
+    {
+      "CenterName": "Bwaila District Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 11
+    },
+    {
+      "CenterName": "Seventh Day Adventist Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 13
+    },
+    {
+      "CenterName": "Daeyang Luke Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 31
+    },
+    {
+      "CenterName": "Kawale Health Centre",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 44
+    },
+    {
+      "CenterName": "Maula Prison",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 78
+    },
+    {
+      "CenterName": "Partners in Hope Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 15
+    },
+    {
+      "CenterName": "Likuni Hospital",
+      "Location" : "Lilongwe",
+      "vaccine": "Astrazeneca",
+      "vaccineNumber": 23
+    }
+  ]
+}
