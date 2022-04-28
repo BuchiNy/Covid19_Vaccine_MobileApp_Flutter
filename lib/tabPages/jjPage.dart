@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:RTCV/colours.dart' as color;
 
 class JJPage extends StatefulWidget {
   const JJPage({Key? key}) : super(key: key);
@@ -34,28 +35,28 @@ class _JJPageState extends State<JJPage> {
                   Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
                   return Card(
                     child: ListTile(
+                      isThreeLine: true,
                       title: Text(
                         data['Name'],
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
                       subtitle: Text(
-                          data['Location'],
+                          '\nLocation: ${data['Location']}\n'
+                              '\nVaccine left: ${data['Vaccine available']}',
                           style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           )
                       ),
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage('assets/hospital.png'),
-                        radius: 20,
-                      ),
-                      // trailing: Icon(Icons.arrow_forward_ios,
-                      //   size: 20,
-                      //   color: color.AppColor.homePageIcons,
-                      // )
+                      leading: Image.network('${data['profilePic']}',
+                        width: 70,),
+                      trailing: Icon(Icons.arrow_forward_ios,
+                        size: 25,
+                        color: color.AppColor.homePageIcons,
+                      )
                     ),
                   );
                 }).toList()

@@ -1,19 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:RTCV/colours.dart' as color;
 
-class otherVaccine extends StatefulWidget {
-  const otherVaccine({Key? key}) : super(key: key);
+class btz extends StatefulWidget {
+  const btz({Key? key}) : super(key: key);
 
   @override
-  State<otherVaccine> createState() => _otherVaccineState();
+  State<btz> createState() => _btzState();
 }
 
-class _otherVaccineState extends State<otherVaccine> {
-
-  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Vaccine type", isEqualTo: "Johnson & Johnson, Astrazeneca").where("Vaccine available", isGreaterThanOrEqualTo:20).snapshots();
+class _btzState extends State<btz> {
+  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Southern Region").snapshots();
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold (
     body: Container(
       child: StreamBuilder<QuerySnapshot>(
         stream: centers,
@@ -41,15 +41,15 @@ class _otherVaccineState extends State<otherVaccine> {
                       ),
                     ),
                     subtitle: Text(
-                        '\nLocation: ${data['Location']}\n'
-                            '\nVaccine left: ${data['Vaccine available']}',
+                        '\nLocation: ${data['Location']}',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         )
                     ),
                       leading: Image.network('${data['profilePic']}',
-                        width: 70,),
+                        width: 70,
+                      height: 70,),
                       trailing: Icon(Icons.arrow_forward_ios,
                         size: 25,
                         color: color.AppColor.homePageIcons,

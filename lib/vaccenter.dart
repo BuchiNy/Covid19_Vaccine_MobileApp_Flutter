@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:RTCV/tabPages/blantyreCity.dart';
+import 'package:RTCV/tabPages/lilongweCity.dart';
 import 'package:flutter/material.dart';
 import 'colours.dart' as color;
 
@@ -11,71 +11,51 @@ class vacCenter extends StatefulWidget {
 
 }
 class _vacCenterState extends State<vacCenter> {
-  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").snapshots();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      initialIndex: 0,
+      length: 2,
+      child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
           backgroundColor: Colors.blueGrey,
-          bottomOpacity: 0,
-          elevation: 0,
-          title: Text(
-            "Centers",
-            style: TextStyle(fontSize: 25,
-                color: color.AppColor.homePageTitle,
-                fontWeight: FontWeight.w700),
-          ),
-        ),
-        body :
-        Container(
-          child: StreamBuilder<QuerySnapshot>(
-            stream: centers,
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              if(snapshot.hasError){
-                return Text('Something went wrong',
-                    style: TextStyle(
-                      fontSize: 17
-                   ),
-                );
-              }
-              if(snapshot.connectionState == ConnectionState.waiting){
-                return Text('Laoding');
-              }
-              return ListView(
-                  children: snapshot.data!.docs.map((DocumentSnapshot document){
-                    Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                    return Card(
-                      child: ListTile(
-                          title: Text(
-                            data['Name'],
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                          subtitle: Text(
-                              data['Location'],
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                              )
-                          ),
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage('assets/hospital.png'),
-                        radius: 20,
-                      ),
-                        // trailing: Icon(Icons.arrow_forward_ios,
-                        //   size: 20,
-                        //   color: color.AppColor.homePageIcons,
-                        // )
-                      ),
-                    );
-                  }).toList()
-              );
+          elevation: 0.2,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.of(context).pop();
             },
           ),
+          title: Text('Centres',
+              style: TextStyle(fontSize: 25,
+                  color: color.AppColor.homePageTitle,
+                  fontWeight: FontWeight.w700)
+          ),
+          //Writes the tab bar column names
+          bottom: TabBar(
+            tabs: <Widget>[
+              Tab(
+                child: Text('Southern Region'),
+              ),
+              Tab(
+                child: Text('Central Region'),
+              ),
+            ],
+          ),
         ),
+        body:
+        // displays the tab contents of each tab, one after the other
+        TabBarView(
+          children: <Widget>[
+            //calls the JJPage widget which has content for Johnson and Johnson, calls it as a function
+            btz(),
+            //calls the AstraPage widget which has content for Astrazeneca, calls it as a function
+            llz(),
+          ],
+        ),
+      ),
     );
   }
 }

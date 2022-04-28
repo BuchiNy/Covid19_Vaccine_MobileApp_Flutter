@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:RTCV/colours.dart' as color;
 
-class otherVaccine extends StatefulWidget {
-  const otherVaccine({Key? key}) : super(key: key);
+class llz extends StatefulWidget {
+  const llz({Key? key}) : super(key: key);
 
   @override
-  State<otherVaccine> createState() => _otherVaccineState();
+  State<llz> createState() => _llzState();
 }
 
-class _otherVaccineState extends State<otherVaccine> {
-
-  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Vaccine type", isEqualTo: "Johnson & Johnson, Astrazeneca").where("Vaccine available", isGreaterThanOrEqualTo:20).snapshots();
+class _llzState extends State<llz> {
+  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Central Region").snapshots();
   @override
   Widget build(BuildContext context) => Scaffold(
     body: Container(
@@ -41,8 +41,7 @@ class _otherVaccineState extends State<otherVaccine> {
                       ),
                     ),
                     subtitle: Text(
-                        '\nLocation: ${data['Location']}\n'
-                            '\nVaccine left: ${data['Vaccine available']}',
+                        '\nLocation: ${data['Location']}',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
