@@ -16,6 +16,7 @@ class _JJPageState extends State<JJPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+    backgroundColor: color.AppColor.homePageBackground,
       body: Container(
         child: StreamBuilder<QuerySnapshot>(
           stream: centers,
@@ -39,24 +40,28 @@ class _JJPageState extends State<JJPage> {
                       title: Text(
                         data['Name'],
                         style: TextStyle(
+                          //styling the text feel
                           fontSize: 18,
-                          fontWeight: FontWeight.w800,
+                          color: color.AppColor.homePageTitle,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       subtitle: Text(
                           '\nLocation: ${data['Location']}\n'
                               '\nVaccine left: ${data['Vaccine available']}',
                           style: TextStyle(
+                            //styling the text feel
                             fontSize: 15,
-                            fontWeight: FontWeight.w500,
+                            color: color.AppColor.homePageSubtitle,
+                            fontWeight: FontWeight.w400,
                           )
                       ),
                       leading: Image.network('${data['profilePic']}',
                         width: 70,),
-                      trailing: Icon(Icons.arrow_forward_ios,
-                        size: 25,
-                        color: color.AppColor.homePageIcons,
-                      )
+                      // trailing: Icon(Icons.arrow_forward_ios,
+                      //   size: 25,
+                      //   color: color.AppColor.homePageIcons,
+                      // )
                     ),
                   );
                 }).toList()

@@ -15,6 +15,7 @@ class _AstraPageState extends State<AstraPage> {
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Vaccine type", isEqualTo: "Astrazeneca").where("Vaccine available", isGreaterThanOrEqualTo:20).snapshots();
   @override
   Widget build(BuildContext context) => Scaffold(
+    backgroundColor: color.AppColor.homePageBackground,
     body: Container(
       child: StreamBuilder<QuerySnapshot>(
         stream: centers,
@@ -38,24 +39,28 @@ class _AstraPageState extends State<AstraPage> {
                     title: Text(
                       data['Name'],
                       style: TextStyle(
+                        //styling the text feel
                         fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        color: color.AppColor.homePageTitle,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     subtitle: Text(
                         '\nLocation: ${data['Location']}\n'
                             '\nVaccine left: ${data['Vaccine available']}',
                         style: TextStyle(
+                          //styling the text feel
+                          color: color.AppColor.homePageSubtitle,
                           fontSize: 15,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         )
                     ),
                       leading: Image.network('${data['profilePic']}',
                         width: 70,),
-                      trailing: Icon(Icons.arrow_forward_ios,
-                        size: 25,
-                        color: color.AppColor.homePageIcons,
-                      )
+                      // trailing: Icon(Icons.arrow_forward_ios,
+                      //   size: 25,
+                      //   color: color.AppColor.homePageIcons,
+                      // )
                   ),
                 );
               }).toList()

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'package:RTCV/colours.dart' as color;
 
 
 class splash extends StatefulWidget {
@@ -23,6 +24,7 @@ class _splashState extends State<splash> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color.AppColor.homePageBackground,
       //displays the splashscreen picture.
       body: Center
         (child: Image.asset('assets/IMG_20220313_173119.png')),

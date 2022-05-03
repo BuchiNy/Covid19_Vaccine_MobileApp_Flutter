@@ -20,9 +20,10 @@ class _vacCenterState extends State<vacCenter> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: color.AppColor.homePageBackground,
           elevation: 0.2,
           leading: IconButton(
+            color: color.AppColor.homePageSubtitle,
             icon: Icon(Icons.arrow_back),
             onPressed: (){
               Navigator.of(context).pop();
@@ -37,14 +38,21 @@ class _vacCenterState extends State<vacCenter> {
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
-                child: Text('Southern Region'),
+                child: Text('Southern Region',
+                    style: TextStyle(
+                        color: color.AppColor.homePageTitle,
+                        fontWeight: FontWeight.w700)),
               ),
               Tab(
-                child: Text('Central Region'),
+                child: Text('Central Region',
+                    style: TextStyle(
+                        color: color.AppColor.homePageTitle,
+                        fontWeight: FontWeight.w700)),
               ),
             ],
           ),
         ),
+        backgroundColor: color.AppColor.homePageBackground,
         body:
         // displays the tab contents of each tab, one after the other
         TabBarView(

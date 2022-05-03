@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.w700),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: color.AppColor.homePageBackground,
       body: Container(
         padding: const EdgeInsets.only(top:15, left:30, right: 30, bottom: 30),
         child:

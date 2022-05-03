@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -26,9 +25,10 @@ class _mapLocationsState extends State<mapLocations> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: color.AppColor.homePageBackground,
           elevation: 0,
           leading: IconButton(
+            color: color.AppColor.homePageSubtitle,
             icon: Icon(Icons.arrow_back),
             onPressed: (){
               Navigator.of(context).pop();
@@ -40,6 +40,7 @@ class _mapLocationsState extends State<mapLocations> {
                   fontWeight: FontWeight.w700)
           ),
         ),
+      backgroundColor: color.AppColor.homePageBackground,
       body: GoogleMap(
         initialCameraPosition: initialCameraPosition,
         myLocationEnabled: true,
@@ -139,6 +140,24 @@ class _mapLocationsState extends State<mapLocations> {
         position: LatLng(-15.682107952588675, 34.970312267681074), //position of marker
         infoWindow: InfoWindow( //popup info
           title: 'Chileka health clinic',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-15.81665269431253, 35.0522796405351), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Limbe health centre',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-14.002503541857749, 33.791083456131595), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Biwi health clinic',
           snippet: '',
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker

@@ -14,6 +14,7 @@ class _btzState extends State<btz> {
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Southern Region").snapshots();
   @override
   Widget build(BuildContext context) => Scaffold (
+    backgroundColor: color.AppColor.homePageBackground,
     body: Container(
       child: StreamBuilder<QuerySnapshot>(
         stream: centers,
@@ -36,24 +37,28 @@ class _btzState extends State<btz> {
                     isThreeLine: true,
                     title: Text(data['Name'],
                       style: TextStyle(
+                        //styling the text feel
                         fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
+                        color: color.AppColor.homePageTitle,
                       ),
                     ),
                     subtitle: Text(
                         '\nLocation: ${data['Location']}',
                         style: TextStyle(
+                          //styling the text feel
                           fontSize: 15,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
+                          color: color.AppColor.homePageSubtitle,
                         )
                     ),
                       leading: Image.network('${data['profilePic']}',
                         width: 70,
                       height: 70,),
-                      trailing: Icon(Icons.arrow_forward_ios,
-                        size: 25,
-                        color: color.AppColor.homePageIcons,
-                      )
+                      // trailing: Icon(Icons.arrow_forward_ios,
+                      //   size: 25,
+                      //   color: color.AppColor.homePageIcons,
+                      // )
                   ),
                 );
               }).toList()

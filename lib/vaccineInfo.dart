@@ -23,9 +23,10 @@ class _VaccineInfoState extends State<VaccineInfo> {
     child: Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: color.AppColor.homePageBackground,
         elevation: 0.2,
         leading: IconButton(
+          color: color.AppColor.homePageSubtitle,
           icon: Icon(Icons.arrow_back),
           onPressed: (){
             Navigator.of(context).pop();
@@ -40,17 +41,27 @@ class _VaccineInfoState extends State<VaccineInfo> {
     bottom: TabBar(
           tabs: <Widget>[
             Tab(
-              child: Text('Johnson & Johnson'),
+              child: Text('Johnson & Johnson',
+                  style: TextStyle(
+                      color: color.AppColor.homePageTitle,
+                      fontWeight: FontWeight.w700)),
             ),
             Tab(
-              child: Text('Astrazeneca'),
+              child: Text('Astrazeneca',
+                  style: TextStyle(
+                      color: color.AppColor.homePageTitle,
+                      fontWeight: FontWeight.w700)),
             ),
             Tab(
-              child: Text('Both/Other'),
+              child: Text('Both/Other',
+                  style: TextStyle(
+                      color: color.AppColor.homePageTitle,
+                      fontWeight: FontWeight.w700)),
             ),
           ],
           ),
         ),
+      backgroundColor: color.AppColor.homePageBackground,
       body:
           // displays the tab contents of each tab, one after the other
           TabBarView(
