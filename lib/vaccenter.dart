@@ -1,6 +1,7 @@
 import 'package:RTCV/tabPages/blantyreCity.dart';
 import 'package:RTCV/tabPages/lilongweCity.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'colours.dart' as color;
 
 class vacCenter extends StatefulWidget {
@@ -30,24 +31,35 @@ class _vacCenterState extends State<vacCenter> {
             },
           ),
           title: Text('Centres',
-              style: TextStyle(fontSize: 25,
-                  color: color.AppColor.homePageTitle,
-                  fontWeight: FontWeight.w700)
+              style: GoogleFonts.getFont('Barlow Semi Condensed',
+                  textStyle: TextStyle(
+                    fontSize: 25,
+                    color: color.AppColor.homePageTitle,
+                    fontWeight: FontWeight.w700,
+                  )
+              ),
           ),
           //Writes the tab bar column names
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
                 child: Text('Southern Region',
-                    style: TextStyle(
-                        color: color.AppColor.homePageTitle,
-                        fontWeight: FontWeight.w700)),
+                    style: GoogleFonts.getFont('Barlow Semi Condensed',
+                        textStyle: TextStyle(
+                          color: color.AppColor.homePageTitle,
+                          fontWeight: FontWeight.w700,
+                        )
+                    ),
+                ),
               ),
               Tab(
                 child: Text('Central Region',
-                    style: TextStyle(
-                        color: color.AppColor.homePageTitle,
-                        fontWeight: FontWeight.w700)),
+                    style: GoogleFonts.getFont('Barlow Semi Condensed',
+                        textStyle: TextStyle(
+                          color: color.AppColor.homePageTitle,
+                          fontWeight: FontWeight.w700,
+                        )
+                    ),),
               ),
             ],
           ),

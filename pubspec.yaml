@@ -46,6 +46,7 @@ dependencies:
   google_maps_flutter: 2.1.2
   geolocator: ^8.2.0
   tab_container: ^1.2.2
+  google_fonts: ^2.3.2
 
 
 

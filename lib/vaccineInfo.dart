@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:RTCV/tabPages/astraPage.dart';
 import 'package:RTCV/tabPages/jjPage.dart';
 import 'package:RTCV/tabPages/otherVaccine.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'colours.dart' as color;
 
 class VaccineInfo extends StatefulWidget {
@@ -33,30 +34,46 @@ class _VaccineInfoState extends State<VaccineInfo> {
           },
         ),
         title: Text('Vaccines',
-        style: TextStyle(fontSize: 25,
-            color: color.AppColor.homePageTitle,
-            fontWeight: FontWeight.w700)
+        style: GoogleFonts.getFont('Barlow Semi Condensed',
+            textStyle: TextStyle(
+              fontSize: 25,
+              color: color.AppColor.homePageTitle,
+              fontWeight: FontWeight.w600,
+            )
+        ),
         ),
     //Writes the tab bar column names
     bottom: TabBar(
           tabs: <Widget>[
             Tab(
               child: Text('Johnson & Johnson',
-                  style: TextStyle(
-                      color: color.AppColor.homePageTitle,
-                      fontWeight: FontWeight.w700)),
+                  style: GoogleFonts.getFont('Barlow Semi Condensed',
+                      textStyle: TextStyle(
+                        color: color.AppColor.homePageTitle,
+                        fontWeight: FontWeight.w700,
+                      )
+                  ),
+              ),
             ),
             Tab(
               child: Text('Astrazeneca',
-                  style: TextStyle(
-                      color: color.AppColor.homePageTitle,
-                      fontWeight: FontWeight.w700)),
+                  style: GoogleFonts.getFont('Barlow Semi Condensed',
+                      textStyle: TextStyle(
+                        color: color.AppColor.homePageTitle,
+                        fontWeight: FontWeight.w700,
+                      )
+                  ),
+              ),
             ),
             Tab(
               child: Text('Both/Other',
-                  style: TextStyle(
-                      color: color.AppColor.homePageTitle,
-                      fontWeight: FontWeight.w700)),
+                  style: GoogleFonts.getFont('Barlow Semi Condensed',
+                      textStyle: TextStyle(
+                        color: color.AppColor.homePageTitle,
+                        fontWeight: FontWeight.w700,
+                      )
+                  ),
+              ),
             ),
           ],
           ),

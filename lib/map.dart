@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'colours.dart' as color;
 
@@ -35,16 +36,20 @@ class _mapLocationsState extends State<mapLocations> {
             },
           ),
           title: Text('Hospital Location',
-              style: TextStyle(fontSize: 25,
-                  color: color.AppColor.homePageTitle,
-                  fontWeight: FontWeight.w700)
+              style: GoogleFonts.getFont('Barlow Semi Condensed',
+                  textStyle: TextStyle(
+                    fontSize: 25,
+                    color: color.AppColor.homePageTitle,
+                    fontWeight: FontWeight.w600,
+                  )
+              ),
           ),
         ),
       backgroundColor: color.AppColor.homePageBackground,
       body: GoogleMap(
         initialCameraPosition: initialCameraPosition,
         myLocationEnabled: true,
-        markers: getmarkers(),
+        markers: _getmarkers(),
         mapType: MapType.normal,
         zoomControlsEnabled: false,
         onMapCreated: (GoogleMapController controller){
@@ -56,7 +61,16 @@ class _mapLocationsState extends State<mapLocations> {
             Position position = await _determinePosition();
             googleMapsController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom: 15)));
           },
-          label: const Text('Get Current Location'),
+          label: Text(
+            'Current Location',
+            style: GoogleFonts.getFont('Barlow Semi Condensed',
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                    color: color.AppColor.homePageTitle,
+                    fontWeight: FontWeight.w600,
+                )
+            ),
+          ),
       ),
     );
   }
@@ -92,7 +106,7 @@ class _mapLocationsState extends State<mapLocations> {
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     return position;
   }
-  Set<Marker> getmarkers() {
+  Set<Marker> _getmarkers() {
     setState(() {
       markers.add(Marker(
         markerId: MarkerId(initialCameraPosition.toString()),
@@ -103,9 +117,25 @@ class _mapLocationsState extends State<mapLocations> {
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker
       ));
-
-      markers.add(
-          Marker(
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-15.781826197378637, 35.00337778651211), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Blantyre Adventist Hospital',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-16.06820120075893, 35.147837607405116), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Thyolo District Hospital',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
             markerId: MarkerId(initialCameraPosition.toString()),
             position: LatLng(-13.941103395808193, 33.78054553948031), //position of marker
             infoWindow: InfoWindow( //popup info
@@ -114,7 +144,6 @@ class _mapLocationsState extends State<mapLocations> {
             ),
             icon: BitmapDescriptor.defaultMarker, //Icon for Marker
       ));
-
       markers.add(Marker(
         markerId: MarkerId(initialCameraPosition.toString()),
         position: LatLng(-15.777674977007301, 35.03959079717485), //position of marker
@@ -124,8 +153,6 @@ class _mapLocationsState extends State<mapLocations> {
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker
       ));
-
-
       markers.add(Marker(
         markerId: MarkerId(initialCameraPosition.toString()),
         position: LatLng(-13.927335850378755, 33.786562531886965), //position of marker
@@ -221,6 +248,33 @@ class _mapLocationsState extends State<mapLocations> {
         position: LatLng(-14.016481616868285, 33.787744949080334), //position of marker
         infoWindow: InfoWindow( //popup info
           title: 'partners in Hope Hospital',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-13.95623627580354, 33.783437664338905), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'City Centre Clinic',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-15.987334038022416, 35.07694084231138), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Thunga Parish Hospital',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-15.801737970604053, 35.0164106846347), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'College of Medicine',
           snippet: '',
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker
