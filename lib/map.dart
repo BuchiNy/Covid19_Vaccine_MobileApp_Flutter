@@ -36,11 +36,11 @@ class _mapLocationsState extends State<mapLocations> {
             },
           ),
           title: Text('Hospital Location',
-              style: GoogleFonts.getFont('Barlow Semi Condensed',
+              style: GoogleFonts.getFont('Satisfy',
                   textStyle: TextStyle(
                     fontSize: 25,
                     color: color.AppColor.homePageTitle,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   )
               ),
           ),
@@ -275,6 +275,24 @@ class _mapLocationsState extends State<mapLocations> {
         position: LatLng(-15.801737970604053, 35.0164106846347), //position of marker
         infoWindow: InfoWindow( //popup info
           title: 'College of Medicine',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-11.019334420112994, 33.85423869721614), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Rumphi District Hospital',
+          snippet: '',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      markers.add(Marker(
+        markerId: MarkerId(initialCameraPosition.toString()),
+        position: LatLng(-11.428433381556593, 33.99585804386766), //position of marker
+        infoWindow: InfoWindow( //popup info
+          title: 'Mzuzu Central Hospita',
           snippet: '',
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker

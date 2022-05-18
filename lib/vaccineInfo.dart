@@ -26,6 +26,7 @@ class _VaccineInfoState extends State<VaccineInfo> {
         automaticallyImplyLeading: true,
         backgroundColor: color.AppColor.homePageBackground,
         elevation: 0.2,
+        centerTitle: true,
         leading: IconButton(
           color: color.AppColor.homePageSubtitle,
           icon: Icon(Icons.arrow_back),
@@ -33,14 +34,14 @@ class _VaccineInfoState extends State<VaccineInfo> {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('Vaccines',
-        style: GoogleFonts.getFont('Barlow Semi Condensed',
-            textStyle: TextStyle(
-              fontSize: 25,
-              color: color.AppColor.homePageTitle,
-              fontWeight: FontWeight.w600,
-            )
-        ),
+        title: Text('Rtcv',
+          style:GoogleFonts.getFont('Satisfy',
+              textStyle: TextStyle(
+                fontSize: 38,
+                color: color.AppColor.homePageTitle,
+                fontWeight: FontWeight.w700,
+              )
+          ),
         ),
     //Writes the tab bar column names
     bottom: TabBar(
@@ -81,14 +82,17 @@ class _VaccineInfoState extends State<VaccineInfo> {
       backgroundColor: color.AppColor.homePageBackground,
       body:
           // displays the tab contents of each tab, one after the other
-          TabBarView(
-            children: <Widget>[
-              //calls the JJPage widget which has content for Johnson and Johnson, calls it as a function
-              JJPage(),
-              //calls the AstraPage widget which has content for Astrazeneca, calls it as a function
-              AstraPage(),
-              otherVaccine(),
-            ],
+          Container(
+            padding: const EdgeInsets.only(top:10, left:10, right: 10, bottom: 10),
+            child: TabBarView(
+              children: <Widget>[
+                //calls the JJPage widget which has content for Johnson and Johnson, calls it as a function
+                JJPage(),
+                //calls the AstraPage widget which has content for Astrazeneca, calls it as a function
+                AstraPage(),
+                otherVaccine(),
+              ],
+            ),
           ),
     ),
     );

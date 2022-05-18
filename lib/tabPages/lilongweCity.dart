@@ -16,8 +16,32 @@ class _llzState extends State<llz> {
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Central Region").snapshots();
   @override
   Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+        centerTitle:true,
+        automaticallyImplyLeading: false,
+        backgroundColor: color.AppColor.homePageBackground,
+        bottomOpacity: 0,
+        elevation: 0,
+        leading: IconButton(
+          color: color.AppColor.homePageSubtitle,
+          icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.of(context).pop();
+          },
+        ),
+        title: Text('Rtcv',
+          style:GoogleFonts.getFont('Satisfy',
+              textStyle: TextStyle(
+                fontSize: 38,
+                color: color.AppColor.homePageTitle,
+                fontWeight: FontWeight.w700,
+              )
+          ),
+        )
+    ),
     backgroundColor: color.AppColor.homePageBackground,
     body: Container(
+      padding: const EdgeInsets.only(top:15, left:10, right: 10, bottom: 10),
       child: StreamBuilder<QuerySnapshot>(
         stream: centers,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {

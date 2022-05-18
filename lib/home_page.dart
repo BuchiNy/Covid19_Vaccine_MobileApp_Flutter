@@ -27,32 +27,15 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: color.AppColor.homePageBackground,
         bottomOpacity: 0,
         elevation: 0,
-        leading: Icon(Icons.home_outlined,
-          size: 40,
-          color: color.AppColor.homePageIcons,
-        ),
-        title:
-          RichText(
-            text: TextSpan(
-              style: GoogleFonts.getFont('Satisfy',
-                  textStyle: TextStyle(
-                    fontSize: 38,
-                    color: color.AppColor.homePageTitle,
-                    fontWeight: FontWeight.w700,
-                  )
-              ),
-              children: [
-                TextSpan(text:'Rtcv'),
-                WidgetSpan(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: Icon(Icons.home_outlined),
-                  )
-                )
-              ]
-            ),
+        title: Text('Rtcv',
+          style:GoogleFonts.getFont('Satisfy',
+              textStyle: TextStyle(
+                fontSize: 38,
+                color: color.AppColor.homePageTitle,
+                fontWeight: FontWeight.w700,
+              )
           ),
-
+        )
       ),
       backgroundColor: color.AppColor.homePageBackground,
       body: Container(
@@ -325,16 +308,16 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                                 Get.to(() => const mapLocations());
                               },
-                              child: Text('Hospital Locations',
-                                  style: GoogleFonts.getFont('Barlow Semi Condensed',
-                                      textStyle: TextStyle(
-                                        fontSize: 20,
-                                        color: color.AppColor.homePageTitle,
-                                        fontWeight: FontWeight.w600,
-                                      )
-                                  )
+                                child: Text('Hospital Locations',
+                                    style: GoogleFonts.getFont('Barlow Semi Condensed',
+                                        textStyle: TextStyle(
+                                          fontSize: 20,
+                                          color: color.AppColor.homePageTitle,
+                                          fontWeight: FontWeight.w600,
+                                        )
+                                    )
+                                ),
                               ),
-                            )
                             ),
                           ],
                         ),

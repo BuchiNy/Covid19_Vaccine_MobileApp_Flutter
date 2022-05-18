@@ -1,47 +1,48 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:async';
 import 'package:RTCV/colours.dart' as color;
 
-class btz extends StatefulWidget {
-  const btz({Key? key}) : super(key: key);
+class North extends StatefulWidget {
+  const North({Key? key}) : super(key: key);
 
   @override
-  State<btz> createState() => _btzState();
+  State<North> createState() => _NorthState();
 }
 
-class _btzState extends State<btz> {
-  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Southern Region").snapshots();
+class _NorthState extends State<North> {
+  final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Northern Region").snapshots();
   @override
-  Widget build(BuildContext context) => Scaffold (
-    appBar: AppBar(
-        centerTitle:true,
-        automaticallyImplyLeading: false,
-        backgroundColor: color.AppColor.homePageBackground,
-        bottomOpacity: 0,
-        elevation: 0,
-        leading: IconButton(
-          color: color.AppColor.homePageSubtitle,
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.of(context).pop();
-          },
-        ),
-        title: Text('Rtcv',
-          style:GoogleFonts.getFont('Satisfy',
-              textStyle: TextStyle(
-                fontSize: 38,
-                color: color.AppColor.homePageTitle,
-                fontWeight: FontWeight.w700,
-              )
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          centerTitle:true,
+          automaticallyImplyLeading: false,
+          backgroundColor: color.AppColor.homePageBackground,
+          bottomOpacity: 0,
+          elevation: 0,
+          leading: IconButton(
+            color: color.AppColor.homePageSubtitle,
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
           ),
-        )
-    ),
-    backgroundColor: color.AppColor.homePageBackground,
-    body: Container(
-      padding: const EdgeInsets.only(top:15, left:10, right: 10, bottom: 10),
+          title: Text('Rtcv',
+            style:GoogleFonts.getFont('Satisfy',
+                textStyle: TextStyle(
+                  fontSize: 38,
+                  color: color.AppColor.homePageTitle,
+                  fontWeight: FontWeight.w700,
+                )
+            ),
+          )
+      ),
+      backgroundColor: color.AppColor.homePageBackground,
+      body: Container(
+        padding: const EdgeInsets.only(top:15, left:10, right: 10, bottom: 10),
         child: StreamBuilder<QuerySnapshot>(
           stream: centers,
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -82,8 +83,7 @@ class _btzState extends State<btz> {
                           ),
                         ),
                         leading: Image.network('${data['profilePic']}',
-                          width: 70,
-                          height: 70,),
+                          width: 70,),
                         // trailing: Icon(Icons.arrow_forward_ios,
                         //   size: 25,
                         //   color: color.AppColor.homePageIcons,
@@ -92,9 +92,11 @@ class _btzState extends State<btz> {
                     );
                   }).toList()
               ),
+              isAlwaysShown: false,
             );
           },
         ),
-    ),
-  );
+      ),
+    );
+  }
 }

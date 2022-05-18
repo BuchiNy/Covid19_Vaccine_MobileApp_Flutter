@@ -24,7 +24,6 @@ class _splashState extends State<splash> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color.AppColor.homePageBackground,
       //displays the splashscreen picture.
       body: Center
         (child: Image.asset('assets/IMG_20220313_173119.png')),
