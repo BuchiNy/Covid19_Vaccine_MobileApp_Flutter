@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+//Class to hold all colours used in the application
+
 class AppColor{
   static Color homePageBackground = const Color(0xFFfbfcff);
   static Color gradientFirst = const Color(0xff0f17ad);

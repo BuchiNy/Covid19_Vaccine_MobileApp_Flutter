@@ -15,6 +15,7 @@ class btz extends StatefulWidget {
 
 class _btzState extends State<btz> {
 
+  //query to display the centers in the south
 final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Southern Region").snapshots();
 final items = ['All', 'Blantyre', 'Thyolo'];
 String? value;

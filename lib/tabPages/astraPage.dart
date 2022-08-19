@@ -14,6 +14,7 @@ class AstraPage extends StatefulWidget {
 
 class _AstraPageState extends State<AstraPage> {
 
+  //query to display astrazenca vaccines
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Vaccine type", isEqualTo: "Astrazeneca").where("Vaccine available", isGreaterThanOrEqualTo:20).snapshots();
   @override
   Widget build(BuildContext context) => Scaffold(

@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 40),
+            /*below are the buttons for the main features of the applications*/
             Container(
               height: 380,
               width: MediaQuery.of(context).size.width,
@@ -186,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                     ),
+
                     //vaccine centre button
                     Container(
                       height: 15,
@@ -232,6 +234,7 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                     ),
+
                     //vaccine information centre button
                     Container(
                       height: 15,
@@ -276,8 +279,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-
                     ),
+
                     //hospital location section
                     Container(
                       height: 15,
@@ -322,7 +325,6 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-
                       ),
                   ],
                 ),

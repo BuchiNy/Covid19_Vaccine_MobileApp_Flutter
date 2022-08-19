@@ -43,6 +43,7 @@ class _vacCenterState extends State<vacCenter> {
             )
         ),
         backgroundColor: color.AppColor.homePageBackground,
+        /*shows the the regions you can check*/
         body: Wrap(
           children: [
             Container(

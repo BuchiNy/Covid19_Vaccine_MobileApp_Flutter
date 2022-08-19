@@ -13,6 +13,7 @@ class North extends StatefulWidget {
 }
 
 class _NorthState extends State<North> {
+  //query statement to display centers from the north
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Northern Region").snapshots();
   @override
   Widget build(BuildContext context) {

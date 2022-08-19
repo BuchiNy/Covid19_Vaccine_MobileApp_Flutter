@@ -13,7 +13,7 @@ class JJPage extends StatefulWidget {
 }
 
 class _JJPageState extends State<JJPage> {
-
+  //query to display JJ vaccines
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Vaccine type", isEqualTo: "Johnson & Johnson").where("Vaccine available", isGreaterThanOrEqualTo:20).snapshots();
 
   @override
@@ -81,10 +81,6 @@ class _JJPageState extends State<JJPage> {
                         ),
                         leading: Image.network('${data['profilePic']}',
                           width: 70,),
-                        // trailing: Icon(Icons.arrow_forward_ios,
-                        //   size: 25,
-                        //   color: color.AppColor.homePageIcons,
-                        // )
                       ),
                     );
                   }).toList()

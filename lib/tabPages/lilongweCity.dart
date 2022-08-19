@@ -13,6 +13,7 @@ class llz extends StatefulWidget {
 }
 
 class _llzState extends State<llz> {
+  //query to display centers from the central
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Region", isEqualTo: "Central Region").snapshots();
   @override
   Widget build(BuildContext context) => Scaffold(

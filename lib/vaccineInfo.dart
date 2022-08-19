@@ -90,6 +90,7 @@ class _VaccineInfoState extends State<VaccineInfo> {
                 JJPage(),
                 //calls the AstraPage widget which has content for Astrazeneca, calls it as a function
                 AstraPage(),
+                //calls the widget which has both vaccines
                 otherVaccine(),
               ],
             ),

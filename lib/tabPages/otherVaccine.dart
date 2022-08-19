@@ -12,7 +12,7 @@ class otherVaccine extends StatefulWidget {
 }
 
 class _otherVaccineState extends State<otherVaccine> {
-
+  //centers variable being assigned the query statement to be able to display the centers with both vaccines
   final Stream<QuerySnapshot> centers = FirebaseFirestore.instance.collection("Centers").where("Vaccine type", isEqualTo: "Johnson & Johnson, Astrazeneca").where("Vaccine available", isGreaterThanOrEqualTo:20).snapshots();
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -33,6 +33,7 @@ class _otherVaccineState extends State<otherVaccine> {
           }
           return CupertinoScrollbar(
             child: ListView(
+              //display the snapshot from the database to show in the app
                 children: snapshot.data!.docs.map((DocumentSnapshot document){
                   Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
                   return Card(
@@ -78,10 +79,6 @@ class _otherVaccineState extends State<otherVaccine> {
                       ),
                         leading: Image.network('${data['profilePic']}',
                           width: 70,),
-                        // trailing: Icon(Icons.arrow_forward_ios,
-                        //   size: 25,
-                        //   color: color.AppColor.homePageIcons,
-                        // )
                     ),
                   );
                 }).toList()

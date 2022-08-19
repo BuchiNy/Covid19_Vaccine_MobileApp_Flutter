@@ -13,8 +13,8 @@ class mapLocations extends StatefulWidget {
 }
 
 class _mapLocationsState extends State<mapLocations> {
-  //google maps connection
 
+  //google maps connection
   late GoogleMapController googleMapsController;
   static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(-13.957826367617761, 33.77469869117725), zoom: 14);
 
@@ -47,6 +47,7 @@ class _mapLocationsState extends State<mapLocations> {
           ),
         ),
       backgroundColor: color.AppColor.homePageBackground,
+      //maps implementation
       body: GoogleMap(
         initialCameraPosition: initialCameraPosition,
         myLocationEnabled: true,
@@ -107,6 +108,7 @@ class _mapLocationsState extends State<mapLocations> {
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     return position;
   }
+  //markers for the centers
   Set<Marker> _getmarkers() {
     setState(() {
       markers.add(Marker(
