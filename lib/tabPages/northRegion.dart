@@ -62,7 +62,7 @@ class _NorthState extends State<North> {
                     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
                     return Card(
                       child: ListTile(
-                        isThreeLine: true,
+                        isThreeLine: false,
                         title: Text(data['Name'],
                           style: GoogleFonts.getFont('Barlow Semi Condensed',
                               textStyle: TextStyle(
@@ -72,15 +72,22 @@ class _NorthState extends State<North> {
                               )
                           ),
                         ),
-                        subtitle: Text(
-                          '\nLocation: ${data['Location']}',
-                          style: GoogleFonts.getFont('Barlow Semi Condensed',
-                              textStyle: TextStyle(
-                                fontSize: 15,
-                                color: color.AppColor.homePageSubtitle,
-                                fontWeight: FontWeight.w400,
-                              )
-                          ),
+                        subtitle: Row(
+                          children: [
+                            Icon(Icons.location_on,
+                              size:15,
+                              color: color.AppColor.homePageIcons,
+                            ),
+                            Text('${data['Location']}',
+                              style: GoogleFonts.getFont('Barlow Semi Condensed',
+                                  textStyle: TextStyle(
+                                    fontSize: 15,
+                                    color: color.AppColor.homePageSubtitle,
+                                    fontWeight: FontWeight.w400,
+                                  )
+                              ),
+                            ),
+                          ],
                         ),
                         leading: Image.network('${data['profilePic']}',
                           width: 70,),

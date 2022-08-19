@@ -28,6 +28,7 @@ class _mapLocationsState extends State<mapLocations> {
           automaticallyImplyLeading: true,
           backgroundColor: color.AppColor.homePageBackground,
           elevation: 0,
+          centerTitle: true,
           leading: IconButton(
             color: color.AppColor.homePageSubtitle,
             icon: Icon(Icons.arrow_back),
@@ -35,10 +36,10 @@ class _mapLocationsState extends State<mapLocations> {
               Navigator.of(context).pop();
             },
           ),
-          title: Text('Hospital Location',
+          title: Text('Rtcv',
               style: GoogleFonts.getFont('Satisfy',
                   textStyle: TextStyle(
-                    fontSize: 25,
+                    fontSize: 38,
                     color: color.AppColor.homePageTitle,
                     fontWeight: FontWeight.w700,
                   )

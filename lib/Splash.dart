@@ -20,13 +20,13 @@ class _splashState extends State<splash> {
   //navigates to HomePage widget
   _navigateToHome() async{
     await Future.delayed(Duration(milliseconds: 2000), () {});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomePage()));
   }
   Widget build(BuildContext context) {
     return Scaffold(
       //displays the splashscreen picture.
       body: Center
-        (child: Image.asset('assets/IMG_20220313_173119.png')),
+        (child: Image.asset('assets/RTCV.png')),
     );
   }
 }

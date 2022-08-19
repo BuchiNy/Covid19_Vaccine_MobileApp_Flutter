@@ -47,16 +47,34 @@ class _otherVaccineState extends State<otherVaccine> {
                             )
                         ),
                       ),
-                      subtitle: Text(
-                          '\nLocation: ${data['Location']}\n'
-                              '\nVaccine left: ${data['Vaccine available']}',
-                          style: GoogleFonts.getFont('Barlow Semi Condensed',
-                              textStyle: TextStyle(
-                                fontSize: 15,
-                                color: color.AppColor.homePageSubtitle,
-                                fontWeight: FontWeight.w400,
-                              )
+                      subtitle: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.location_on,
+                                size: 15,
+                                color: color.AppColor.homePageIcons,
+                              ),
+                              SizedBox(width: 5,),
+                              Text(
+                                '${data['Location']}',
+                                style: GoogleFonts.getFont('Barlow Semi Condensed',
+                                    textStyle: TextStyle(
+                                      fontSize: 15,
+                                      color: color.AppColor.homePageSubtitle,
+                                      fontWeight: FontWeight.w400,
+                                    )
+                                ),
+                              ),
+                            ],
                           ),
+                          Row(
+                            children: [
+                              SizedBox(width: 5,),
+                              Text('\nVaccine left: ${data['Vaccine available']}')
+                            ],
+                          )
+                        ],
                       ),
                         leading: Image.network('${data['profilePic']}',
                           width: 70,),

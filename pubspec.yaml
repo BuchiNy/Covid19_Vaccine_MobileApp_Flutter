@@ -47,6 +47,7 @@ dependencies:
   geolocator: ^8.2.0
   tab_container: ^1.2.2
   google_fonts: ^2.3.2
+  cached_network_image: ^3.2.1
 
 
 
